@@ -1,8 +1,8 @@
-import React from "react"
-import { Button, Modal } from 'react-bootstrap';
+import React from "react";
+import { Button, Modal, ModalHeader } from "react-bootstrap";
 
 type Todo = {
-    id:number;
+    id : number;
     text : string;
     isChecked : boolean;
 }
@@ -15,7 +15,7 @@ type TodoModalProps = {
 
 const TodoModal:React.FC<TodoModalProps> = ({show, handleClose, todo})=> {
     return (
-        <Modal show={show} onHide = {()=>{handleClose()}}centered>
+        <Modal show={show} onHide={()=>{handleClose}} centered>
             <Modal.Header closeButton>
                 <Modal.Title>상세정보</Modal.Title>
             </Modal.Header>
@@ -24,11 +24,8 @@ const TodoModal:React.FC<TodoModalProps> = ({show, handleClose, todo})=> {
                 <p>현재날짜 : {new Date().toLocaleDateString()}</p>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant = "secondary" onClick={handleClose}>
-                    Close
-                </Button>
+                <Button variant="secondary" onClick={handleClose}>Close</Button>
             </Modal.Footer>
-
         </Modal>
     )
 }
